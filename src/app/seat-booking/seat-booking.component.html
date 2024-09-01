@@ -1,0 +1,31 @@
+<div class="background">
+    <div class="glass-effect"></div> <!-- Glass effect overlay -->
+    <div class="content">
+      <h2>Train Seat Booking</h2>
+  
+      <div>
+        <label for="seatCount">Number of Seats to Book (1-7):</label>
+        <input id="seatCount" type="number" [(ngModel)]="seatCount" min="1" max="7">
+        <button (click)="bookSeats()">Book Seats</button>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+  
+      <div *ngIf="bookedSeats.length">
+        <h3>Booked Seats</h3>
+        <p>{{ bookedSeats.join(', ') }}</p>
+      </div>
+  
+      <div>
+        <h3>Seats Layout</h3>
+        <div class="seat-row" *ngFor="let row of getSeatRows(); let i = index">
+          <span *ngFor="let seat of getSeatsInRow(i + 1)" [ngClass]="{'available-seat': seat.status === 'available', 'booked-seat': seat.status === 'booked'}">
+            {{ seat.seat_id }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
