@@ -28,7 +28,7 @@ export interface BookingResponse {
 })
 export class SeatService {
 
-  private apiUrl = 'http://localhost:8088';  // Update this to your backend URL
+  private apiUrl = 'https://marvellous-gerbil-protean-egov-technologies-limited-ac3997d5.koyeb.app';  // Update this to your backend URL
 
   constructor(private http: HttpClient) { }
 
